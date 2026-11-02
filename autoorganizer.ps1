@@ -45,7 +45,7 @@ switch ($Opcion) {
             git commit -m "auto-organizer: $Fecha" 2>&1 | Out-Null
             Write-Host "  [COMMIT] $Fecha" -ForegroundColor Green
             $Remote = git remote -v 2>&1
-            if ($Remote) { git push 2>&1 | Out-Null; Write-Host "  [PUSH] OK" -ForegroundColor Green }
+            if ($Remote) { cmd /c "git push >nul 2>&1"   ; Write-Host "  [PUSH] OK" -ForegroundColor Green }
             else { Write-Host "  [PUSH] Sin remote." -ForegroundColor DarkGray }
         } else { Write-Host "  [OK] Todo limpio." -ForegroundColor Green }
         Log "=== FIN ==="
